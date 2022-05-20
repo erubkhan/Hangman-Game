@@ -1,0 +1,66 @@
+HANGMAN-GAME PLANNER:
+
+DAY 1:
+
+Game flow: 
+
+-display messages to show the game has started
+-program randomly chooses a word to guess from a word list
+-asks the user to start guessing the letters
+-program checks if the letter exists in the word
+ ->if yes, then replace __ with letter
+ ->if no, the guessed letter goes into guessed_letters list and one part of the hangman
+   is built
+ ->the entire hangman is built with 6 wrong guesses
+-the user has can only get 6 wrong entries
+-once the user fails to guess the word, end program
+-if the user has entered the right word, end program (change later)
+
+
+Functions needed (pre-planning):
+
+start_game (display message)
+generate_word (random word from list)
+check_letter (check if it exists in the word)
+build_hangman (build hangman)
+create_word (when right letter guessed, show the letter) ?? how will i keep updating? list?
+
+
+Steps I've taken so far:
+
+-created a main()
+-created start_game_display_message() function which gives a display message when the game  is about to begin
+-created generate_word(word_list) that randomly chooses a word from word_list
+-created build_hangman(word, right_guesses, mistakes) that takes in the randomly generated word, a list of the right letters guessed and the number of mistakes the user has made
+-created get_letter(alphabets_list) which gets a letter from user and checks whether input is correct or not
+-created a check_letter(word, letter) that checks if the letter given by the user exists in the word given to guess
+----------------------------------------------------------------------
+
+DAY 2:
+
+Game flow update:
+
+-check if the letter is entered more than once, if it yes then prompt the user to enter a different letter
+-get the list of words from a text file 
+-fix the bug for when the program doesn't end when there are repeated letters in the word
+-create a better ending display
+-create a loop to ask the user to play again
+
+Functions needed(pre-planning):
+
+readfile (reading the textfile and create a word_list)
+update check_letter() to check for repeatedly entered words
+
+Steps I've taken so far:
+
+-created a readfile(filename) function that reads a textfile of words and puts them into a words_list in the main program
+-created a bigger list to account for all the letters guessed (total_letters_guessed)
+-created check_repeated_letter(total_letters_guessed, letter) to check if a letter was being
+-created game_result(word, right_guesses) to check when the user wins the game. it also fixes the bug for when the program didnt end when there were repeated letters in the word
+-created a play(run) function that loops the program to play again if the user wants to keep playing
+
+Bugs:
+
+-if we re-enter an already guessed letter, it gives the right prompt, but right after if we enter a letter we haven't guessed and it exists in the word, it doesnt print it out
+ -->SOLVED
+
